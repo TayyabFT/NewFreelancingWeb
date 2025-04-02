@@ -1,4 +1,4 @@
-import HeroSection from '@/components/landing/main'
+import HeroSection from '@/components/landing/HeroSection'
 import Navbar from '@/components/shared/Navbar'
 import React from 'react'
 
