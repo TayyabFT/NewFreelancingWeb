@@ -3,7 +3,7 @@ const Cta = () => {
   return (
     <div className="bg-gradient-to-r from-gray-900 to-green-900 flex justify-center items-center py-10 m-10 rounded-xl">
       <div className="max-w-xl text-center">
-        <h2 className="text-3xl font-bold text-black mb-4">
+        <h2 className="text-3xl font-bold text-white mb-4">
           Supercharge Your Affiliate Marketing Today!
         </h2>
         <a

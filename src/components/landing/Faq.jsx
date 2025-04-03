@@ -43,7 +43,7 @@ const Faq = () => {
   };
 
   return (
-    <section className="bg-gray-100 py-16">
+    <section className="bg-white py-16">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-gray-900">
           Frequently Asked Questions
@@ -53,7 +53,7 @@ const Faq = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white shadow-md rounded-lg p-4 cursor-pointer"
+              className="bg-white rounded-lg p-4 cursor-pointer"
               onClick={() => toggleFAQ(index)}
             >
               {/* Question */}
