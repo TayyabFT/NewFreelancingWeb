@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`w-full max-w-6xl flex items-center py-4 mx-auto fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+      className={`w-full mt-10 max-w-6xl flex items-center py-4 mx-auto fixed top-4 left-0 right-0 z-50 transition-colors duration-300 ${
         isScrolled
           ? "bg-white text-black shadow-md mt-10"
           : "bg-transparent text-white"
