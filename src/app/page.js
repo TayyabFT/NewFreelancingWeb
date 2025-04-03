@@ -1,3 +1,4 @@
+import AutomationSection from '@/components/landing/AutomationSection'
 import HeroSection from '@/components/landing/HeroSection'
 import PartnershipSection from '@/components/landing/PartnershipSection'
 import Navbar from '@/components/shared/Navbar'
@@ -10,6 +11,7 @@ const page = () => {
     <Navbar/>
     <HeroSection/>
     <PartnershipSection/>
+    <AutomationSection/>
     </div>
     
     </>
