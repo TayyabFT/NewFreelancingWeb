@@ -21,11 +21,10 @@ export default function Navbar() {
     <nav
       className={`w-full mt-10 max-w-6xl flex items-center py-4 mx-auto fixed top-4 left-0 right-0 z-50 transition-colors duration-300 ${
         isScrolled
-          ? "bg-white text-black shadow-md mt-10"
+          ? "bg-white text-black shadow-md mt-10 p-3 rounded-lg"
           : "bg-transparent text-white"
       }`}
     >
-      {/* Logo and Euka aligned to the far left */}
       <div className="flex items-center gap-2 text-lg font-semibold">
         <FaLeaf
           className={`${isScrolled ? "text-green-500" : "text-green-400"}`}
