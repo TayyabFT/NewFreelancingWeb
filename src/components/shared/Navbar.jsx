@@ -10,107 +10,103 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
-  // Detect scroll event
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 0);
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setMenuOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
-    <nav
-      className={`w-full max-w-6xl flex items-center justify-between py-4 px-6 mx-auto fixed top-4 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white text-black shadow-md p-3 rounded-lg"
-          : "bg-transparent text-white"
-      }`}
-    >
-      {/* Logo */}
-      <div className="flex items-center gap-2 text-lg font-semibold">
-        <FaReact className={isScrolled ? "text-green-500" : "text-green-400"} />
-        <span
-          className={`px-3 py-1 rounded-lg ${
-            isScrolled ? "bg-gray-200 text-black" : "bg-gray-700 text-white"
-          }`}
-        >
-          AffiliTok
-        </span>
-      </div>
-      {/* Desktop Navigation */}
-      <div className="hidden md:flex items-center gap-6">
-        {[
-          "Home",
-          "Case Studies",
-          "Pricing",
-          "Find Affiliates",
-          "About",
-          "Blog",
-        ].map((item, index) => (
-          <Link
-            key={index}
-            href={`/${item.toLowerCase().replace(" ", "-")}`}
-            className={isScrolled ? "text-black" : "text-green-400"}
-          >
-            {item}
-          </Link>
-        ))}
-      </div>
-      {/* /* Sign Up & Login (Desktop) */}
-      <div className="hidden md:flex items-center gap-4">
-        <button
-          onClick={() => {
-            router.push("/signup");
-          }}
-          className={`border px-3 py-1 rounded-lg hover:bg-green-500 transition-colors duration-300 ${
-            isScrolled ? "border-black text-black" : "border-white text-white"
-          }`}
-        >
-          Sign Up
-        </button>
-        <button
-          onClick={() => {
-            router.push("/login");
-          }}
-          className={`border px-3 py-1 rounded-lg hover:bg-green-500 transition-colors duration-300 ${
-            isScrolled ? "border-black text-black" : "border-white text-white"
-          }`}
-        >
-          Login
-        </button>
-      </div>
-      {/* Mobile Menu Button */}
-      <button
-        className="md:hidden text-xl focus:outline-none"
-        onClick={() => setMenuOpen(!menuOpen)}
+    <nav className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300">
+      <div
+        className={`max-w-6xl mx-auto flex items-center justify-between py-4 px-6 ${
+          isScrolled
+            ? "bg-white text-black shadow-md rounded-lg mt-2"
+            : "bg-transparent text-white"
+        }`}
       >
-        {menuOpen ? <FaTimes /> : <FaBars />}
-      </button>
+        {/* Logo */}
+        <div className="flex items-center gap-2 text-lg font-semibold">
+          <FaReact
+            className={isScrolled ? "text-green-500" : "text-green-400"}
+          />
+          <span
+            className={`px-3 py-1 rounded-lg whitespace-nowrap ${
+              isScrolled ? "bg-gray-200 text-black" : "bg-gray-700 text-white"
+            }`}
+          >
+            AffiliTok
+          </span>
+        </div>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-6">
+          {[
+            "Home",
+            "Case Studies",
+            "Pricing",
+            "Find Affiliates",
+            "About",
+            "Blog",
+          ].map((item, index) => (
+            <Link
+              key={index}
+              href={`/${item.toLowerCase().replace(" ", "-")}`}
+              className={isScrolled ? "text-black" : "text-green-400"}
+            >
+              {item}
+            </Link>
+          ))}
+        </div>
+
+        {/* Sign Up & Login (Desktop) */}
+        <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={() => router.push("/signup")}
+            className={`border px-3 py-1 rounded-lg hover:bg-green-500 transition-colors duration-300 ${
+              isScrolled ? "border-black text-black" : "border-white text-white"
+            }`}
+          >
+            Sign Up
+          </button>
+          <button
+            onClick={() => router.push("/login")}
+            className={`border px-3 py-1 rounded-lg hover:bg-green-500 transition-colors duration-300 ${
+              isScrolled ? "border-black text-black" : "border-white text-white"
+            }`}
+          >
+            Login
+          </button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className={`md:hidden text-xl focus:outline-none z-50 ${
+            menuOpen || isScrolled ? "text-black" : "text-white"
+          }`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
+
       {/* Mobile Navigation */}
       {menuOpen && (
         <div
           ref={menuRef}
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          className="fixed inset-0 bg-transparent bg-opacity-60 z-40 flex justify-end"
         >
-          <div className="absolute top-0 right-0 w-64 h-full bg-white shadow-lg flex flex-col p-6">
-            <button
-              className="text-xl self-end mb-4"
-              onClick={() => setMenuOpen(false)}
-            >
-              <FaTimes />
-            </button>
+          <div className="w-64 bg-white h-full shadow-lg flex flex-col p-6 space-y-4">
             {[
               "Home",
               "Case Studies",
@@ -122,23 +118,26 @@ export default function Navbar() {
               <Link
                 key={index}
                 href={`/${item.toLowerCase().replace(" ", "-")}`}
-                className="text-black text-lg py-2 border-b border-gray-300"
+                className="text-black text-lg py-2 border-b border-gray-200"
                 onClick={() => setMenuOpen(false)}
               >
                 {item}
               </Link>
             ))}
-            <div className="mt-4">
-              <Link href="/signup" className="block text-black py-2">
-                Sign Up
-              </Link>
-              <Link
-                href="/login"
-                className="block border px-3 py-2 rounded-lg text-center text-black border-black mt-2"
-              >
-                Login
-              </Link>
-            </div>
+            <Link
+              href="/signup"
+              className="text-black text-md mt-4"
+              onClick={() => setMenuOpen(false)}
+            >
+              Sign Up
+            </Link>
+            <Link
+              href="/login"
+              className="border border-black px-3 py-2 rounded-lg text-center text-black"
+              onClick={() => setMenuOpen(false)}
+            >
+              Login
+            </Link>
           </div>
         </div>
       )}
