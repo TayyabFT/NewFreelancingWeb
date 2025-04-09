@@ -9,7 +9,7 @@ export default function AutomationSection() {
         <div>
           <h2 className="text-3xl md:text-4xl font-bold text-green-900 leading-snug">
             Manually messaging and managing affiliates sucks. <br />
-            Automate everything with Euka
+            Automate everything with AffiliTok
           </h2>
 
           <ul className="mt-6 space-y-4">
@@ -23,8 +23,8 @@ export default function AutomationSection() {
             <li className="flex items-start space-x-3">
               <FaCheck className="text-green-600 mt-1" />
               <span className="text-gray-700">
-                Scale your outreach 5x faster, save 10x more time with Euka’s AI
-                Automation
+                Scale your outreach 5x faster, save 10x more time with
+                AffiliTok’s AI Automation
               </span>
             </li>
             <li className="flex items-start space-x-3">

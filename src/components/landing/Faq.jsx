@@ -5,34 +5,34 @@ import { FaChevronDown } from "react-icons/fa";
 const Faq = () => {
   const faqs = [
     {
-      question: "What is Euka?",
+      question: "What is AffiliTok?",
       answer:
-        "Euka is an AI-powered affiliate automation tool that helps brands increase engagement and streamline marketing efforts.",
+        "AffiliTok is an AI-powered affiliate automation tool that helps brands increase engagement and streamline marketing efforts.",
     },
     {
-      question: "How does Euka improve ROI?",
+      question: "How does AffiliTok improve ROI?",
       answer:
-        "By leveraging AI for automation, Euka helps brands optimize marketing strategies, track performance, and boost conversions effectively.",
+        "By leveraging AI for automation, AffiliTok helps brands optimize marketing strategies, track performance, and boost conversions effectively.",
     },
     {
-      question: "How does Euka improve ROI?",
+      question: "How does AffiliTok improve ROI?",
       answer:
-        "By leveraging AI for automation, Euka helps brands optimize marketing strategies, track performance, and boost conversions effectively.",
+        "By leveraging AI for automation, AffiliTok helps brands optimize marketing strategies, track performance, and boost conversions effectively.",
     },
     {
-      question: "How does Euka improve ROI?",
+      question: "How does AffiliTok improve ROI?",
       answer:
-        "By leveraging AI for automation, Euka helps brands optimize marketing strategies, track performance, and boost conversions effectively.",
+        "By leveraging AI for automation, AffiliTok helps brands optimize marketing strategies, track performance, and boost conversions effectively.",
     },
     {
-      question: "How does Euka improve ROI?",
+      question: "How does AffiliTok improve ROI?",
       answer:
-        "By leveraging AI for automation, Euka helps brands optimize marketing strategies, track performance, and boost conversions effectively.",
+        "By leveraging AI for automation, AffiliTok helps brands optimize marketing strategies, track performance, and boost conversions effectively.",
     },
     {
-      question: "Can I integrate Euka with my existing tools?",
+      question: "Can I integrate AffiliTok with my existing tools?",
       answer:
-        "Yes, Euka supports integrations with various marketing platforms, CRMs, and analytics tools.",
+        "Yes, AffiliTok supports integrations with various marketing platforms, CRMs, and analytics tools.",
     },
   ];
 

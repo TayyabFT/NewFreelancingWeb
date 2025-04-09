@@ -10,7 +10,7 @@ export default function HeroSection() {
           <span className="block">Generating Engine</span>
         </h1>
         <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
-          Euka’s AI-driven platform takes the manual work out of affiliate
+          AffiliTok’s AI-driven platform takes the manual work out of affiliate
           marketing, helping you focus on sales growth.
         </p>
         <div className="mt-6 flex gap-4 justify-center">

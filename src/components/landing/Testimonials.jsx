@@ -3,19 +3,19 @@ import Image from "next/image";
 const Testimonials = () => {
   const testimonials = [
     {
-      text: "Euka is truly the best affiliate automation tool after I tested different bots. I like the simple interface Euka has and it is easy to set up and use. Most importantly, it drives results! Our sample requests and GMV have been skyrocketing since we started using Euka.",
+      text: "AffiliTok is truly the best affiliate automation tool after I tested different bots. I like the simple interface AffiliTok has and it is easy to set up and use. Most importantly, it drives results! Our sample requests and GMV have been skyrocketing since we started using AffiliTok.",
       name: "Axel S.",
       role: "Viral Food & Beverage Brand",
       image: profile, // Replace with actual image path
     },
     {
-      text: "Switching to Euka was one of the best decisions we made for our TTS marketing efforts. The setup was a breeze, and the performance metrics are incredibly detailed. We’ve experienced a noticeable boost in affiliate-driven traffic and sales. Euka’s support team is also top-notch, always ready to help with any questions. Highly recommend!",
+      text: "Switching to AffiliTok was one of the best decisions we made for our TTS marketing efforts. The setup was a breeze, and the performance metrics are incredibly detailed. We’ve experienced a noticeable boost in affiliate-driven traffic and sales. AffiliTok’s support team is also top-notch, always ready to help with any questions. Highly recommend!",
       name: "Eli C.",
       role: "Top Health & Supplement Brand",
       image: profile, // Replace with actual image path
     },
     {
-      text: "It is a must-have tool for any TikTok Shop. Since adopting Euka, our conversion rates have soared, and we’ve seen a significant increase in ROI. It’s a game-changer for any brand looking to streamline their affiliate operations on TikTok Shop.",
+      text: "It is a must-have tool for any TikTok Shop. Since adopting AffiliTok, our conversion rates have soared, and we’ve seen a significant increase in ROI. It’s a game-changer for any brand looking to streamline their affiliate operations on TikTok Shop.",
       name: "Daniela H.",
       role: "Awarding Winning Beauty Brand",
       image: profile, // Replace with actual image path

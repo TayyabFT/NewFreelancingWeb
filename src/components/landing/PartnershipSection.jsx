@@ -15,7 +15,7 @@ export default function PartnershipSection() {
         {/* Right Section */}
         <div>
           <p className="text-gray-700">
-            At Euka AI, we've built the intelligent infrastructure that's
+            At AffiliTok AI, we've built the intelligent infrastructure that's
             defining the future of social commerce. Our AI-powered platform
             helps leading TikTok Shop brands discover, connect with, and manage
             creator relationships at scale – turning authentic content into

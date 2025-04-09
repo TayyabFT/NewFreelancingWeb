@@ -6,7 +6,7 @@ const TikTokSales = () => {
     <div className="bg-white py-12 px-4">
       {/* Header */}
       <h2 className="text-center text-2xl font-bold text-green-900 mb-8">
-        Drive TikTok Shop sales with Euka
+        Drive TikTok Shop sales with AffiliTok
       </h2>
 
       {/* Stats Cards */}

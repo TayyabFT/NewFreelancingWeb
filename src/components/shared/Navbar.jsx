@@ -1,9 +1,11 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { FaLeaf, FaBars, FaTimes } from "react-icons/fa";
+import { FaReact, FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar() {
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -38,16 +40,15 @@ export default function Navbar() {
     >
       {/* Logo */}
       <div className="flex items-center gap-2 text-lg font-semibold">
-        <FaLeaf className={isScrolled ? "text-green-500" : "text-green-400"} />
+        <FaReact className={isScrolled ? "text-green-500" : "text-green-400"} />
         <span
           className={`px-3 py-1 rounded-lg ${
             isScrolled ? "bg-gray-200 text-black" : "bg-gray-700 text-white"
           }`}
         >
-          Euka
+          AffiliTok
         </span>
       </div>
-
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center gap-6">
         {[
@@ -67,25 +68,29 @@ export default function Navbar() {
           </Link>
         ))}
       </div>
-
-      {/* Sign Up & Login (Desktop) */}
+      {/* /* Sign Up & Login (Desktop) */}
       <div className="hidden md:flex items-center gap-4">
-        <Link
-          href="/signup"
-          className={isScrolled ? "text-black" : "text-white"}
+        <button
+          onClick={() => {
+            router.push("/signup");
+          }}
+          className={`border px-3 py-1 rounded-lg hover:bg-green-500 transition-colors duration-300 ${
+            isScrolled ? "border-black text-black" : "border-white text-white"
+          }`}
         >
           Sign Up
-        </Link>
-        <Link
-          href="/login"
+        </button>
+        <button
+          onClick={() => {
+            router.push("/login");
+          }}
           className={`border px-3 py-1 rounded-lg hover:bg-green-500 transition-colors duration-300 ${
             isScrolled ? "border-black text-black" : "border-white text-white"
           }`}
         >
           Login
-        </Link>
+        </button>
       </div>
-
       {/* Mobile Menu Button */}
       <button
         className="md:hidden text-xl focus:outline-none"
@@ -93,7 +98,6 @@ export default function Navbar() {
       >
         {menuOpen ? <FaTimes /> : <FaBars />}
       </button>
-
       {/* Mobile Navigation */}
       {menuOpen && (
         <div

@@ -10,9 +10,9 @@ const SocialListing = () => {
           Social Listening and Content Analytics
         </h1>
         <p className="text-lg mb-6">
-          Euka helps eCommerce brands streamline influencer collaborations with
-          automated outreach, performance tracking, and real-time insights to
-          grow TikTok sales.
+          AffiliTok helps eCommerce brands streamline influencer collaborations
+          with automated outreach, performance tracking, and real-time insights
+          to grow TikTok sales.
         </p>
         <button className="bg-green-800 hover:bg-green-400 text-white font-medium py-3 px-6 rounded-lg shadow-md transition">
           Learn more →
