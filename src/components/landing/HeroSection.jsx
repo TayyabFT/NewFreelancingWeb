@@ -16,13 +16,13 @@ export default function HeroSection() {
         <div className="mt-6 flex gap-4 justify-center">
           <Link
             href="/get-started"
-            className="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-800 transition duration-600"
+            className="bg-green-500 text-white px-3 py-3 rounded-lg hover:bg-green-800  transition duration-600"
           >
             Get Started →
           </Link>
           <Link
             href="/book-demo"
-            className="border border-white px-6 py-3 rounded-lg hover:bg-green-500 trasition duration-600"
+            className="border border-white px-3 py-3 rounded-lg hover:bg-green-500 trasition duration-600"
           >
             Book a Demo
           </Link>
