@@ -33,9 +33,9 @@ const PricingTable = () => {
         </div>
 
         {/* Pricing Cards */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 m-3">
           {/* Starter Plan */}
-          <div className="bg-[#03150c] p-8 rounded-xl text-left">
+          <div className="bg-[#03150c] p-8 rounded-xl text-left ">
             <h3 className="text-xl font-semibold text-white">Starter</h3>
             <p className="text-white">Ideal for new TikTok Shops</p>
             <p className="text-4xl font-bold mt-4 text-green-400">$199</p>

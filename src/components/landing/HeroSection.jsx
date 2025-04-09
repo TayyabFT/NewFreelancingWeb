@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <div className="bg-gradient-to-r from-gray-900 to-green-900 h-screen flex flex-col items-center justify-center text-white p-6 rounded-xl m-6">
+    <div className="bg-gradient-to-r from-gray-900 to-green-900 h-screen flex flex-col items-center justify-center text-white p-6 rounded-xl m-3">
       <div className="text-center mt-16 w-full max-w-4xl h-1/2 flex flex-col justify-center">
         <h1 className="text-4xl md:text-5xl font-bold">
           Turn <span className="text-green-400">TikTok Affiliates</span> Into a
