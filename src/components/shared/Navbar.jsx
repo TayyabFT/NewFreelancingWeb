@@ -71,7 +71,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <button
             onClick={() => router.push("/signup")}
-            className={`border px-3 py-1 rounded-lg hover:bg-green-500 transition-colors duration-300 ${
+            className={`border px-3 py-1 rounded-lg hover:bg-blue-500 transition-colors duration-300 ${
               isScrolled ? "border-black text-black" : "border-white text-white"
             }`}
           >
@@ -79,7 +79,7 @@ export default function Navbar() {
           </button>
           <button
             onClick={() => router.push("/login")}
-            className={`border px-3 py-1 rounded-lg hover:bg-green-500 transition-colors duration-300 ${
+            className={`border px-3 py-1 rounded-lg hover:bg-blue-500 transition-colors duration-300 ${
               isScrolled ? "border-black text-black" : "border-white text-white"
             }`}
           >
