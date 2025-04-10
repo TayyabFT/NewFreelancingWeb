@@ -27,12 +27,12 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 mt-3">
       <div
         className={`max-w-6xl mx-auto flex items-center justify-between py-4 px-6 ${
           isScrolled
             ? "bg-white text-black shadow-md rounded-lg mt-2"
-            : "bg-transparent text-white"
+            : "bg-transparent text-white mt-2"
         }`}
       >
         {/* Logo */}
