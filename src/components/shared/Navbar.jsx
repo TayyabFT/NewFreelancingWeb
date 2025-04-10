@@ -56,6 +56,7 @@ export default function Navbar() {
             "Find Affiliates",
             "About",
             "Blog",
+            "Made by Fiza",
           ].map((item, index) => (
             <Link
               key={index}
@@ -112,6 +113,7 @@ export default function Navbar() {
               "Find Affiliates",
               "About",
               "Blog",
+              "Made by Fiza",
             ].map((item, index) => (
               <Link
                 key={index}
