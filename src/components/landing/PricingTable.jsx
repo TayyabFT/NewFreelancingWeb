@@ -6,7 +6,7 @@ const PricingTable = () => {
   const [billingCycle, setBillingCycle] = useState("monthly");
 
   return (
-    <div className="bg-gradient-to-r from-gray-900 to-green-900 py-16">
+    <div className="bg-gradient-to-r from-gray-900 to-blue-900 py-16">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-white">Our Pricing Is Simple</h2>
         <p className="text-white">Limited Discount For Early Users</p>
@@ -21,7 +21,7 @@ const PricingTable = () => {
             }
           >
             <div
-              className={`w-6 h-6 bg-green-700 rounded-full shadow-md transform transition-transform ${
+              className={`w-6 h-6 bg-blue-700 rounded-full shadow-md transform transition-transform ${
                 billingCycle === "yearly"
                   ? "translate-x-7 m-0"
                   : "translate-x-0 m-1"
@@ -38,22 +38,22 @@ const PricingTable = () => {
           <div className="bg-[#03150c] p-8 rounded-xl text-left ">
             <h3 className="text-xl font-semibold text-white">Starter</h3>
             <p className="text-white">Ideal for new TikTok Shops</p>
-            <p className="text-4xl font-bold mt-4 text-green-400">$199</p>
+            <p className="text-4xl font-bold mt-4 text-blue-400">$199</p>
             <ul className="mt-4 space-y-3 text-white">
               <li className="flex items-center">
-                <FaCheck className="text-green-400 mr-2" />
+                <FaCheck className="text-blue-400 mr-2" />
                 Up to 10k messages per month
               </li>
               <li className="flex items-center">
-                <FaCheck className="text-green-400 mr-2" />
+                <FaCheck className="text-blue-400 mr-2" />
                 Basic access to CRM
               </li>
               <li className="flex items-center">
-                <FaCheck className="text-green-400 mr-2" />
+                <FaCheck className="text-blue-400 mr-2" />
                 Cold start support with one free affiliate video
               </li>
               <li className="flex items-center">
-                <FaCheck className="text-green-400 mr-2" />
+                <FaCheck className="text-blue-400 mr-2" />
                 Basic customer support via Discord
               </li>
             </ul>
@@ -66,7 +66,7 @@ const PricingTable = () => {
           <div className="bg-[#03150c] p-8 rounded-xl text-white text-left">
             <h3 className="text-xl font-semibold">Growth</h3>
             <p className="text-white">Recommended for scaling TikTok Shops</p>
-            <p className="text-4xl font-bold mt-4 text-green-400">$479</p>
+            <p className="text-4xl font-bold mt-4 text-blue-400">$479</p>
             <ul className="mt-4 space-y-3">
               {[
                 "Unlimited messages, invites & emails",
@@ -82,7 +82,7 @@ const PricingTable = () => {
                 "Premium support via Email or WhatsApp",
               ].map((feature, index) => (
                 <li key={index} className="flex items-center">
-                  <FaCheck className="text-green-400 mr-2" />
+                  <FaCheck className="text-blue-400 mr-2" />
                   {feature}
                 </li>
               ))}
@@ -98,7 +98,7 @@ const PricingTable = () => {
             <p className="text-white">
               Perfect for agencies managing multiple TikTok Shops
             </p>
-            <p className="text-4xl font-bold mt-4 text-green-400">Contact us</p>
+            <p className="text-4xl font-bold mt-4 text-blue-400">Contact us</p>
             <ul className="mt-4 space-y-3">
               {[
                 "Unlimited access to Euka",
@@ -107,7 +107,7 @@ const PricingTable = () => {
                 "VIP support via Slack",
               ].map((feature, index) => (
                 <li key={index} className="flex items-center">
-                  <FaCheck className="text-green-400 mr-2" />
+                  <FaCheck className="text-blue-400 mr-2" />
                   {feature}
                 </li>
               ))}

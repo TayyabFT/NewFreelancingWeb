@@ -8,7 +8,7 @@ export default function InfluencerOutreach() {
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Left Section */}
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-green-900 leading-snug">
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 leading-snug">
             Influencer Outreach & <br /> Collab Management
           </h2>
 
@@ -18,7 +18,7 @@ export default function InfluencerOutreach() {
             them to post high-converting videos.
           </p>
 
-          <button className="mt-6 bg-green-900 text-white px-6 py-3 flex items-center gap-2 rounded-lg hover:bg-green-500 transition duration-600">
+          <button className="mt-6 bg-blue-900 text-white px-6 py-3 flex items-center gap-2 rounded-lg hover:bg-blue-500 transition duration-600">
             Learn more <FaArrowRight />
           </button>
         </div>

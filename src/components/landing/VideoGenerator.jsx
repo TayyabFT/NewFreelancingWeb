@@ -30,7 +30,7 @@ const VideoGenerator = () => {
     <div className="bg-white py-12 px-4">
       {/* Heading Section */}
       <div className="text-center mb-12">
-        <h1 className="text-3xl font-bold text-green-900">
+        <h1 className="text-3xl font-bold text-blue-900">
           AI Script & Video Generator
         </h1>
         <p className="text-gray-600 mt-2">
@@ -72,7 +72,7 @@ const VideoGenerator = () => {
 
       {/* Learn More Button */}
       <div className="mt-12 text-center">
-        <button className="bg-green-900 hover:bg-green-700 text-white font-medium py-3 px-8 rounded-lg shadow-md transition">
+        <button className="bg-blue-900 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg shadow-md transition">
           Learn More
         </button>
       </div>

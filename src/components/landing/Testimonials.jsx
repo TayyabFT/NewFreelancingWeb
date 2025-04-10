@@ -25,7 +25,7 @@ const Testimonials = () => {
   return (
     <section className="bg-white py-16 text-center">
       <div className="max-w-5xl mx-auto">
-        <span className="bg-green-500 text-white text-sm px-4 py-1 rounded-full">
+        <span className="bg-blue-500 text-white text-sm px-4 py-1 rounded-full">
           Testimonials
         </span>
         <h2 className="text-3xl font-bold mt-4 text-gray-900">

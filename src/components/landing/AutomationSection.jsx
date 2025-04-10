@@ -7,28 +7,28 @@ export default function AutomationSection() {
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Left Section */}
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold text-green-900 leading-snug">
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 leading-snug">
             Manually messaging and managing affiliates sucks. <br />
             Automate everything with AffiliTok
           </h2>
 
           <ul className="mt-6 space-y-4">
             <li className="flex items-start space-x-3">
-              <FaCheck className="text-green-600 mt-1" />
+              <FaCheck className="text-blue-600 mt-1" />
               <span className="text-gray-700">
                 Scout & reach out to 1000s of Top TikTok Shop affiliates
                 automatically
               </span>
             </li>
             <li className="flex items-start space-x-3">
-              <FaCheck className="text-green-600 mt-1" />
+              <FaCheck className="text-blue-600 mt-1" />
               <span className="text-gray-700">
                 Scale your outreach 5x faster, save 10x more time with
                 AffiliTok’s AI Automation
               </span>
             </li>
             <li className="flex items-start space-x-3">
-              <FaCheck className="text-green-600 mt-1" />
+              <FaCheck className="text-blue-600 mt-1" />
               <span className="text-gray-700">
                 Discover trends, generate winning videos with affiliates, and
                 multiply content with AI

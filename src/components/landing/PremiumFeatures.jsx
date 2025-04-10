@@ -1,6 +1,6 @@
 const PremiumFeatures = () => {
   return (
-    <div className="bg-gradient-to-r from-gray-900 to-green-900 text-white py-16">
+    <div className="bg-gradient-to-r from-gray-900 to-blue-900 text-white py-16">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl font-bold mx-2">Add-on premium features</h2>
 
@@ -38,7 +38,7 @@ const PremiumFeatures = () => {
         {/* Call to Action */}
         <p className="text-gray-300 mt-6 mx-3">
           Premium solutions can be added to any plan. Start a free trial or{" "}
-          <a href="#" className="text-green-400 hover:underline">
+          <a href="#" className="text-blue-400 hover:underline">
             request a demo
           </a>{" "}
           to learn more.

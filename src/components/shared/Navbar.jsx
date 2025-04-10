@@ -37,9 +37,7 @@ export default function Navbar() {
       >
         {/* Logo */}
         <div className="flex items-center gap-2 text-lg font-semibold">
-          <FaReact
-            className={isScrolled ? "text-green-500" : "text-green-400"}
-          />
+          <FaReact className={isScrolled ? "text-blue-400" : "text-blue-400"} />
           <span
             className={`px-3 py-1 rounded-lg whitespace-nowrap ${
               isScrolled ? "bg-gray-200 text-black" : "bg-gray-700 text-white"
@@ -62,7 +60,7 @@ export default function Navbar() {
             <Link
               key={index}
               href={`/${item.toLowerCase().replace(" ", "-")}`}
-              className={isScrolled ? "text-black" : "text-green-400"}
+              className={isScrolled ? "text-black" : "text-white"}
             >
               {item}
             </Link>

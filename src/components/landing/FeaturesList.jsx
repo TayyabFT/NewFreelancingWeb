@@ -16,7 +16,7 @@ const FeaturesList = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <div key={index} className="flex items-center space-x-3">
-              <FaCheck className="text-green-500 w-5 h-5" />
+              <FaCheck className="text-blue-500 w-5 h-5" />
               <span className="text-gray-800 text-sm font-medium">
                 {feature}
               </span>
