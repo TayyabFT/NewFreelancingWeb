@@ -27,7 +27,7 @@ export default function OTPVerificationPage() {
       const response = await verifyOtp(storedEmail, fullOtp);
 
       if (response.status === 200) {
-        router.push("/login/afterotp");
+        router.push("/login/changepassword");
       } else {
         alert(response.message || "Failed to verify OTP");
       }
