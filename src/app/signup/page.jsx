@@ -27,9 +27,9 @@ export default function SignUp() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Left side */}
-      <div className="md:w-1/2 w-full bg-gradient-to-b from-green-900 to-black text-white flex flex-col justify-center items-start px-6 md:px-20 py-12 md:m-12 rounded-none md:rounded-xl relative">
+      <div className="md:w-1/2 w-full bg-gradient-to-b from-blue-900 to-black text-white flex flex-col justify-center items-start px-6 md:px-20 py-12 md:m-12 rounded-none md:rounded-xl relative">
         <div className="flex items-center mb-6">
-          <FaReact className="text-4xl mr-2 text-green-400" />
+          <FaReact className="text-4xl mr-2 text-blue-400" />
           <span className="text-2xl font-bold">AffiliTok</span>
         </div>
         <h1 className="text-3xl md:text-4xl font-bold mb-3">
@@ -66,7 +66,7 @@ export default function SignUp() {
                 type="text"
                 placeholder="Your Full Name"
                 value={FullName}
-                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 onChange={(e) => setFullName(e.target.value)}
               />
             </div>
@@ -77,7 +77,7 @@ export default function SignUp() {
               <input
                 type="email"
                 placeholder="Your email address"
-                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -89,14 +89,14 @@ export default function SignUp() {
               <input
                 type="password"
                 placeholder="Your password"
-                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-[#3fcf8e] hover:bg-[#34b27b] text-white font-semibold py-2 rounded"
+              className="w-full bg-blue-500 hover:bg-blue-800 text-white font-semibold py-2 rounded"
             >
               Sign up
             </button>
