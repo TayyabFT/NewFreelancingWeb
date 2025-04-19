@@ -98,7 +98,7 @@ export default function LoginPage() {
               Forgot your password?
             </a>
             <br />
-            <a href="#" className="text-sm text-gray-600 hover:underline">
+            <a href="/signup" className="text-sm text-gray-600 hover:underline">
               Don't have an account? Sign up
             </a>
           </div>

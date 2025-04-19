@@ -102,7 +102,7 @@ export default function SignUp() {
             </button>
           </form>
           <div className="text-center mt-4">
-            <a href="#" className="text-sm text-gray-600 hover:underline">
+            <a href="/login" className="text-sm text-gray-600 hover:underline">
               Already have an account? Sign in
             </a>
           </div>
