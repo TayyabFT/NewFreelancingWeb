@@ -1,26 +1,24 @@
 "use client";
-import { RegisterUser } from "@/features/signup";
-import { FaReact } from "react-icons/fa";
 import React, { useState } from "react";
-
-export default function SignUp() {
+import { FaReact } from "react-icons/fa";
+import { loginUser } from "@/features/login";
+export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [FullName, setFullName] = useState("");
   const [error, setError] = useState("");
 
-  const handleSignup = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setError(""); // Clear previous error
     try {
-      const res = await RegisterUser(FullName, email, password);
-      alert("Signup successful!");
+      const res = await loginUser(email, password);
+      alert("Login successful!");
       console.log("Response:", res);
       // optionally redirect or store token here
     } catch (err) {
       console.error(err);
       setError(err.message);
-      alert("Signup unsuccessful: " + err.message);
+      alert("Login unsuccessful: " + err.message);
     }
   };
 
@@ -41,7 +39,10 @@ export default function SignUp() {
         <h3 className="text-2xl md:text-3xl font-semibold mb-6">
           Grow your brand.
         </h3>
-        <div className="absolute bottom-4 left-6 right-6 md:left-auto md:right-auto flex flex-wrap gap-3 text-sm md:text-base">
+        <div
+          className="absolute bottom-4 left-6 right-6 md:left-auto md:right-auto flex flex-wrap gap-3 text-sm md:text-base"
+          suppressHydrationWarning
+        >
           <span className="font-bold">BetterAlt.</span>
           <span className="font-semibold">nello™</span>
           <span className="font-semibold">DREAM PAIRS</span>
@@ -53,33 +54,23 @@ export default function SignUp() {
       {/* Right side */}
       <div className="md:w-1/2 w-full flex items-center justify-center p-6">
         <div className="w-full max-w-md">
-          <h2 className="text-2xl font-semibold mb-2">Join today</h2>
+          <h2 className="text-2xl font-semibold mb-2">Log In</h2>
           <p className="text-sm text-gray-600 mb-6">
-            Join thousands of brands growing with TikTok creators.{" "}
+            Continue growing your brand with TikTok creators.
           </p>
-          <form className="space-y-4" onSubmit={handleSignup}>
-            <div>
-              <label className="block text-gray-700 text-sm mb-2">
-                Full Name
-              </label>
-              <input
-                type="text"
-                placeholder="Your Full Name"
-                value={FullName}
-                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                onChange={(e) => setFullName(e.target.value)}
-              />
-            </div>
+          {error && <div className="text-red-600 text-sm mb-4">{error}</div>}
+          <form className="space-y-4" onSubmit={handleLogin}>
             <div>
               <label className="block text-gray-700 text-sm mb-2">
                 Email address
               </label>
               <input
                 type="email"
-                placeholder="Your email address"
-                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email address"
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                suppressHydrationWarning
               />
             </div>
             <div>
@@ -88,22 +79,30 @@ export default function SignUp() {
               </label>
               <input
                 type="password"
-                placeholder="Your password"
-                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                placeholder="Your password"
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                suppressHydrationWarning
               />
             </div>
             <button
               type="submit"
               className="w-full bg-blue-500 hover:bg-blue-800 text-white font-semibold py-2 rounded"
             >
-              Sign up
+              Sign in
             </button>
           </form>
           <div className="text-center mt-4">
-            <a href="/login" className="text-sm text-gray-600 hover:underline">
-              Already have an account? Sign in
+            <a
+              href="/login/forgotpassword"
+              className="text-sm text-black hover:underline"
+            >
+              Forgot your password?
+            </a>
+            <br />
+            <a href="/signup" className="text-sm text-gray-600 hover:underline">
+              Don't have an account? Sign up
             </a>
           </div>
         </div>
