@@ -1,4 +1,4 @@
-import LoginPage from "@/components/login/login";
+import LoginPage from "@/components/login/LoginPage";
 import React from "react";
 
 const page = () => {
