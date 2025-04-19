@@ -1,8 +1,29 @@
 "use client";
-import React from "react";
+import { RegisterUser } from "@/assets/features/signup";
 import { FaReact } from "react-icons/fa";
+import React, { useState } from "react";
 
 export default function SignUp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [FullName, setFullName] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    setError(""); // Clear previous error
+    try {
+      const res = await RegisterUser(FullName, email, password);
+      alert("Signup successful!");
+      console.log("Response:", res);
+      // optionally redirect or store token here
+    } catch (err) {
+      console.error(err);
+      setError(err.message);
+      alert("Signup unsuccessful: " + err.message);
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Left side */}
@@ -36,7 +57,19 @@ export default function SignUp() {
           <p className="text-sm text-gray-600 mb-6">
             Join thousands of brands growing with TikTok creators.{" "}
           </p>
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSignup}>
+            <div>
+              <label className="block text-gray-700 text-sm mb-2">
+                Full Name
+              </label>
+              <input
+                type="text"
+                placeholder="Your Full Name"
+                value={FullName}
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                onChange={(e) => setFullName(e.target.value)}
+              />
+            </div>
             <div>
               <label className="block text-gray-700 text-sm mb-2">
                 Email address
@@ -45,6 +78,8 @@ export default function SignUp() {
                 type="email"
                 placeholder="Your email address"
                 className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div>
@@ -55,6 +90,8 @@ export default function SignUp() {
                 type="password"
                 placeholder="Your password"
                 className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <button

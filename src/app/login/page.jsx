@@ -1,8 +1,27 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { FaReact } from "react-icons/fa";
-
+import { loginUser } from "@/assets/features/login";
 export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError(""); // Clear previous error
+    try {
+      const res = await loginUser(email, password);
+      alert("Login successful!");
+      console.log("Response:", res);
+      // optionally redirect or store token here
+    } catch (err) {
+      console.error(err);
+      setError(err.message);
+      alert("Login unsuccessful: " + err.message);
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Left side */}
@@ -20,7 +39,10 @@ export default function LoginPage() {
         <h3 className="text-2xl md:text-3xl font-semibold mb-6">
           Grow your brand.
         </h3>
-        <div className="absolute bottom-4 left-6 right-6 md:left-auto md:right-auto flex flex-wrap gap-3 text-sm md:text-base">
+        <div
+          className="absolute bottom-4 left-6 right-6 md:left-auto md:right-auto flex flex-wrap gap-3 text-sm md:text-base"
+          suppressHydrationWarning
+        >
           <span className="font-bold">BetterAlt.</span>
           <span className="font-semibold">nello™</span>
           <span className="font-semibold">DREAM PAIRS</span>
@@ -36,15 +58,19 @@ export default function LoginPage() {
           <p className="text-sm text-gray-600 mb-6">
             Continue growing your brand with TikTok creators.
           </p>
-          <form className="space-y-4">
+          {error && <div className="text-red-600 text-sm mb-4">{error}</div>}
+          <form className="space-y-4" onSubmit={handleLogin}>
             <div>
               <label className="block text-gray-700 text-sm mb-2">
                 Email address
               </label>
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email address"
                 className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                suppressHydrationWarning
               />
             </div>
             <div>
@@ -53,8 +79,11 @@ export default function LoginPage() {
               </label>
               <input
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Your password"
                 className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                suppressHydrationWarning
               />
             </div>
             <button
