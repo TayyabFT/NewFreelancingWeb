@@ -40,9 +40,9 @@ export default function OTPVerificationPage() {
   return (
     <div className="min-h-screen flex flex-col md:flex-row">
       {/* Left Section */}
-      <div className="md:w-1/2 w-full bg-gradient-to-b from-green-900 to-black text-white flex flex-col justify-center items-start px-6 md:px-20 py-12 md:m-12 rounded-none md:rounded-xl relative">
+      <div className="md:w-1/2 w-full bg-gradient-to-b from-blue-900 to-black text-white flex flex-col justify-center items-start px-6 md:px-20 py-12 md:m-12 rounded-none md:rounded-xl relative">
         <div className="flex items-center mb-6">
-          <FaLeaf className="text-4xl mr-2 text-green-400" />
+          <FaLeaf className="text-4xl mr-2 text-blue-400" />
           <span className="text-2xl font-bold">Euka</span>
         </div>
         <h1 className="text-3xl md:text-4xl font-bold mb-3">
@@ -88,7 +88,7 @@ export default function OTPVerificationPage() {
 
             <button
               type="submit"
-              className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded"
             >
               Submit
             </button>
@@ -97,7 +97,7 @@ export default function OTPVerificationPage() {
               Didn't receive OTP code?{" "}
               <a
                 href="#"
-                className="text-green-600 font-semibold hover:underline"
+                className="text-blue-600 font-semibold hover:underline"
               >
                 Resend Code
               </a>

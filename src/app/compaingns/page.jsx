@@ -1,13 +1,15 @@
-import HomePage from "@/components/dashboard/HomePage";
+"use client";
+import { usePathname } from "next/navigation";
+import MyBotsPage from "@/components/dashboard/MyBotsPage";
 import Sidebar from "@/components/dashboard/Sidebar";
-import React from "react";
+import CreateNewBotPage from "@/app/compaingns/new/page";
 
-const page = () => {
+export default function Home() {
+  const pathname = usePathname();
+  console.log(pathname);
   return (
-    <div>
-      <HomePage />
+    <div className="flex">
+      <MyBotsPage />
     </div>
   );
-};
-
-export default page;
+}

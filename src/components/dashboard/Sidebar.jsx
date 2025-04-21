@@ -1,76 +1,110 @@
 "use client";
+import logo from "@/assets/images/logo.png";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 import { useState } from "react";
 import {
-  FiChevronDown,
-  FiChevronRight,
-  FiMail,
-  FiList,
-  FiSearch,
-  FiUsers,
+  FiGrid,
+  FiBriefcase,
+  FiPieChart,
+  FiBarChart2,
   FiFileText,
+  FiChevronDown,
 } from "react-icons/fi";
 
-export default function Sidebar() {
-  const [outreachOpen, setOutreachOpen] = useState(true);
+const menuItems = [
+  {
+    title: "Dashboard",
+    icon: <FiGrid className="w-5 h-5" />,
+    isDropdown: false,
+  },
+  {
+    title: "Outreach",
+    icon: <FiBriefcase className="w-5 h-5" />,
+    isDropdown: true,
+    items: ["My Bots ", "Find Creators"],
+    textColor: " font-semibold",
+  },
+  {
+    title: "CRM",
+    icon: <FiPieChart className="w-5 h-5" />,
+    isDropdown: true,
+    items: ["Leads", "Contacts"],
+  },
+  {
+    title: "Social Intelligence",
+    icon: <FiBarChart2 className="w-5 h-5" />,
+    isDropdown: true,
+    items: ["Analytics", "Listening"],
+  },
+  {
+    title: "Content",
+    icon: <FiFileText className="w-5 h-5" />,
+    isDropdown: true,
+    items: ["Library", "Posts"],
+  },
+];
+
+const Sidebar = () => {
+  const [openTab, setOpenTab] = useState(null);
+  const router = useRouter();
+  const toggleTab = (title) => {
+    setOpenTab(openTab === title ? null : title);
+  };
 
   return (
-    <div className="w-[20%] bg-white h-screen p-6 border-r border-gray-200">
-      <h1 className="text-2xl font-bold mb-8">Euka</h1>
+    <div className="w-[20%] min-h-screen bg-gray-100 p-4 shadow space-y-8">
+      {/* Logo */}
+      <div className="flex items-center mb-12">
+        <Image src={logo} alt="Euka Logo" className="w-6 h-6 mr-2 rounded-lg" />
+        <span className="text-xl font-bold text-blue-900">Euka</span>
+      </div>
 
-      <h2 className="text-lg font-semibold text-gray-500 mb-6">DASHBOARD</h2>
-
-      {/* OUTREACH Section */}
-      <div className="mb-4">
-        <div
-          className="flex items-center justify-between cursor-pointer mb-2"
-          onClick={() => setOutreachOpen(!outreachOpen)}
-        >
-          <h3 className="font-medium">OUTREACH</h3>
-          {outreachOpen ? <FiChevronDown /> : <FiChevronRight />}
-        </div>
-
-        {outreachOpen && (
-          <div className="ml-4 space-y-2">
-            <p className="text-sm text-gray-500">
-              Find and reach out to creators efficiently via messages, invites,
-              and emails.
-            </p>
-
-            <div className="mt-4 space-y-3">
-              <div className="flex items-center space-x-2 text-gray-700">
-                <FiMail className="text-gray-500" />
-                <span>Email Campaigns</span>
-              </div>
-              <div className="flex items-center space-x-2 text-gray-700">
-                <FiList className="text-gray-500" />
-                <span>My Lists</span>
-              </div>
-              <div className="flex items-center space-x-2 text-gray-700">
-                <FiSearch className="text-gray-500" />
-                <span>Find Creators</span>
-              </div>
+      {/* Menu */}
+      {menuItems.map(({ title, icon, isDropdown, items, textColor }, index) => (
+        <div key={title}>
+          <div
+            className={`flex items-center justify-between cursor-pointer mb-2 hover:bg-blue-300 hover:text-blue-700 p-3 hover:rounded-xl ${
+              textColor || "text-gray-600"
+            } ${!isDropdown && "hover:text-black"}`}
+            onClick={() => isDropdown && toggleTab(title)}
+          >
+            <div className="flex items-center space-x-2 font-medium">
+              {icon}
+              <span>{title}</span>
             </div>
+            {isDropdown && (
+              <FiChevronDown
+                className={`w-4 h-4 transition-transform ${
+                  openTab === title ? "rotate-180" : ""
+                }`}
+              />
+            )}
           </div>
-        )}
-      </div>
-
-      <div className="border-t border-gray-200 my-6"></div>
-
-      {/* CRM Section */}
-      <div className="mb-4">
-        <h3 className="font-medium mb-4">CRM</h3>
-
-        <div className="ml-4 space-y-3">
-          <div className="flex items-center space-x-2 text-gray-700">
-            <FiUsers className="text-gray-500" />
-            <span>SOCIAL INTELLIGENCE</span>
-          </div>
-          <div className="flex items-center space-x-2 text-gray-700">
-            <FiFileText className="text-gray-500" />
-            <span>CONTENT</span>
-          </div>
+          {isDropdown && openTab === title && (
+            <ul className="ml-7 mb-2 text-sm text-gray-700 space-y-1">
+              {items.map((item) => (
+                <li
+                  key={item}
+                  onClick={() => {
+                    if (item.trim() === "My Bots") router.push("/compaingns");
+                  }}
+                  className="cursor-pointer hover:text-black"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
+          {/* Horizontal line after each section except last */}
+          {index !== menuItems.length - 1 && (
+            <hr className="border-gray-300 my-4" />
+          )}
         </div>
-      </div>
+      ))}
     </div>
   );
-}
+};
+
+export default Sidebar;

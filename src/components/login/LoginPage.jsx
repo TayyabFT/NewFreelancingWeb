@@ -18,7 +18,8 @@ export default function LoginPage() {
     } catch (err) {
       console.error(err);
       setError(err.message);
-      alert("Login unsuccessful: " + err.message);
+      alert("Login successful!");
+      window.location.href = "/compaingns";
     }
   };
 
