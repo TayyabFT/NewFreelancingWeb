@@ -2,17 +2,24 @@
 import { useState } from "react";
 import PhoneFeild from "./PhoneFeild";
 
-export default function MessageSetup({ onNext }) {
-  const [invitationName, setInvitationName] = useState("");
+export default function MessageSetup({
+  onNext,
+  sampleOffer,
+  setMessageContent,
+  setInvitationName,
+  setCommissionPercentage,
+  setValidUntil,
+  setEmailAddress,
+  setSampleOffer,
+  setManualReview,
+  invitationName,
+  commissionPercentage,
+  validUntil,
+  manualReview,
+  setContactNumber,
+  contactNumber,
+}) {
   const [notes, setNotes] = useState("");
-  const [commissionPercentage, setCommissionPercentage] = useState("");
-  const [validUntil, setValidUntil] = useState("");
-  const [offerFreeSamples, setOfferFreeSamples] = useState(false);
-  const [reviewRequests, setReviewRequests] = useState(null);
-
-  const countAlphabets = (text) => text.replace(/[^a-zA-Z]/g, "").length;
-  const countWords = (text) => text.trim().split(/\s+/).filter(Boolean).length;
-
   return (
     <div className="mt-6">
       <h2 className="text-xl font-medium mb-2">Customize Your Message</h2>
@@ -29,8 +36,8 @@ export default function MessageSetup({ onNext }) {
           <input
             type="checkbox"
             className="mr-2"
-            checked={offerFreeSamples}
-            onChange={(e) => setOfferFreeSamples(e.target.checked)}
+            checked={sampleOffer}
+            onChange={(e) => setSampleOffer(e.target.checked)}
           />
           <span>
             Each invited creator can request a free sample of every product in
@@ -38,7 +45,7 @@ export default function MessageSetup({ onNext }) {
           </span>
         </div>
 
-        {offerFreeSamples && (
+        {sampleOffer && (
           <div className="mb-4">
             <h3 className="font-semibold mb-2">Review Options</h3>
             <div className="flex items-center mb-2">
@@ -48,8 +55,8 @@ export default function MessageSetup({ onNext }) {
                   id="manual"
                   name="reviewOption"
                   className="mr-2"
-                  checked={reviewRequests === "manual"}
-                  onChange={() => setReviewRequests("manual")}
+                  checked={manualReview === "manual"}
+                  onChange={() => setManualReview("manual")}
                 />
                 <label htmlFor="manual">Manually Review Requests</label>
               </div>
@@ -59,8 +66,8 @@ export default function MessageSetup({ onNext }) {
                   id="auto"
                   name="reviewOption"
                   className="mr-2"
-                  checked={reviewRequests === "auto"}
-                  onChange={() => setReviewRequests("auto")}
+                  checked={manualReview === "auto"}
+                  onChange={() => setManualReview("auto")}
                 />
                 <label htmlFor="auto">Auto Approve Requests</label>
               </div>
@@ -79,7 +86,7 @@ export default function MessageSetup({ onNext }) {
             invitation to collaborate and promote your products on TikTok.
             However, creators will lose the shoppable video link if the invite
             expires. Therefore, we recommend setting the valid until date to at
-            least 3 months into the future
+            least 3 months into the future.
           </p>
         </div>
 
@@ -88,17 +95,14 @@ export default function MessageSetup({ onNext }) {
             <label className="block text-sm font-medium mb-1">
               Invitation Name
             </label>
-            <div className="relative">
-              <input
-                type="text"
-                className="border rounded-md p-2 w-full pr-10"
-                value={invitationName}
-                onChange={(e) => setInvitationName(e.target.value)}
-              />
-              <span className="absolute right-0 top-1/2 transform -translate-y-1/2 text-gray-500">
-                {`${countAlphabets(invitationName)}/30`}
-              </span>
-            </div>
+            <input
+              type="text"
+              className="border rounded-md p-2 w-full"
+              value={invitationName}
+              onChange={(e) => {
+                setInvitationName(e.target.value);
+              }}
+            />
           </div>
 
           <div className="mb-4">
@@ -151,11 +155,16 @@ export default function MessageSetup({ onNext }) {
               type="email"
               className="border rounded-md p-2 w-full"
               placeholder="Enter your email address"
+              onChange={(e) => setEmailAddress(e.target.value)}
             />
           </div>
 
           <div className="mb-4">
-            <PhoneFeild />
+            <PhoneFeild
+              contactNumber={contactNumber}
+              setContactNumber={setContactNumber}
+              // onChange={(number) => setContactNumber(number)}
+            />
           </div>
         </div>
       </div>
@@ -174,17 +183,15 @@ export default function MessageSetup({ onNext }) {
         <div className="w-1/2 border-l pl-4 text-lg-gray-500">
           <div className="mb-4">
             <label className="block text-sm font-medium mb-1">Message</label>
-            <div className="relative">
-              <textarea
-                className="border rounded-md p-2 w-full h-56 resize-none"
-                placeholder="Enter your message"
-                value={notes}
-                onChange={(e) => setNotes(e.target.value)}
-              />
-              <span className="absolute bottom-2 left-2 text-gray-500 text-sm">
-                {`${countWords(notes)}/500`}
-              </span>
-            </div>
+            <textarea
+              className="border rounded-md p-2 w-full h-56 resize-none"
+              placeholder="Enter your message"
+              value={notes}
+              onChange={(e) => {
+                setNotes(e.target.value);
+                setMessageContent(e.target.value);
+              }}
+            />
           </div>
         </div>
       </div>

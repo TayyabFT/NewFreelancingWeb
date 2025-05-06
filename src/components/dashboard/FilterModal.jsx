@@ -1,12 +1,41 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   XMarkIcon,
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/solid";
 
-export default function FilterModal({ isOpen, onClose }) {
+const genderOptions = ["Male", "Female", "Other"];
+
+export default function FilterModal({
+  isOpen,
+  onClose,
+  category,
+  setCategory,
+  last_month_gmv,
+  setLastMonthGmv,
+  follower_count,
+  setFollowerCount,
+  avg_live_views,
+  setAvgLiveViews,
+  post_fulfillment_rate,
+  setPostFulfillmentRate,
+  creator_gender,
+  setCreatorGender,
+  language,
+  setLanguage,
+  follower_age_min,
+  setFollowerAgeMin,
+  follower_age_max,
+  setFollowerAgeMax,
+  follower_gender,
+  setFollowerGender,
+  engagement_rate,
+  setEngagementRate,
+  avg_shoppable_video_views,
+  setAvgShoppableVideoViews,
+}) {
   const [openSections, setOpenSections] = useState({
     general: false,
     creatorData: false,
@@ -65,7 +94,11 @@ export default function FilterModal({ isOpen, onClose }) {
                   <label className="block text-gray-700 font-medium text-sm mb-1">
                     Categories
                   </label>
-                  <select className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                  <select
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
                     <option>Categories</option>
                     <option>Beauty</option>
                     <option>Fashion</option>
@@ -77,24 +110,32 @@ export default function FilterModal({ isOpen, onClose }) {
                   <label className="block text-gray-700 font-medium text-sm mb-1">
                     Last Month GMV
                   </label>
-                  <select className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option>TikTok Shop Monthly Sales</option>
-                    <option>$0 - $1k</option>
-                    <option>$1k - $10k</option>
-                    <option>$10k - $50k</option>
-                    <option>$50k+</option>
+                  <select
+                    value={last_month_gmv}
+                    onChange={(e) => setLastMonthGmv(e.target.value)}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option>TikTok Shop Monthly Sales in Dollars</option>
+                    <option>10</option>
+                    <option>1000</option>
+                    <option>10000</option>
+                    <option>100000</option>
                   </select>
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium text-sm mb-1">
                     Follower Count
                   </label>
-                  <select className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                  <select
+                    value={follower_count}
+                    onChange={(e) => setFollowerCount(e.target.value)}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
                     <option>Follower Count</option>
-                    <option>1k - 10k</option>
-                    <option>10k - 100k</option>
-                    <option>100k - 1M</option>
-                    <option>1M+</option>
+                    <option>10000</option>
+                    <option>100000</option>
+                    <option>1000000</option>
+                    <option>10000000</option>
                   </select>
                 </div>
               </div>
@@ -115,9 +156,62 @@ export default function FilterModal({ isOpen, onClose }) {
               )}
             </button>
             {openSections.creatorData && (
-              <div className="pl-4 text-sm text-gray-600 mb-2">
-                <p>• Number of Posts</p>
-                <p>• Engagement Rate</p>
+              <div className="pl-1 text-sm text-gray-600 mb-2 space-y-4">
+                {/* Post Fulfillment Rate */}
+                <div>
+                  <label className="block text-gray-700 font-medium text-sm mb-1">
+                    Post Fulfillment Rate
+                  </label>
+                  <select
+                    value={post_fulfillment_rate}
+                    onChange={(e) => setPostFulfillmentRate(e.target.value)}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option>Post Fulfillment Rate (%)</option>
+                    <option>0</option>
+                    <option>10</option>
+                    <option>20</option>
+                    <option>30</option>
+                  </select>
+                </div>
+
+                {/* Gender */}
+                <div>
+                  <label className="block mb-1 font-medium">Gender</label>
+                  <div className="flex gap-3">
+                    {genderOptions.map((gender) => (
+                      <button
+                        key={gender}
+                        className={`px-4 py-1 border rounded-full text-sm ${
+                          creator_gender === gender
+                            ? "bg-blue-500 text-white"
+                            : "text-gray-700 hover:bg-gray-100"
+                        }`}
+                        onClick={() => setCreatorGender(gender)}
+                      >
+                        {gender}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Languages */}
+                <div>
+                  <label className="block text-gray-700 font-medium text-sm mb-1">
+                    Languages
+                  </label>
+                  <select
+                    value={language}
+                    onChange={(e) => setLanguage(e.target.value)}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option>Languages</option>
+                    <option>English</option>
+                    <option>Spanish</option>
+                    <option>French</option>
+                    <option>German</option>
+                  </select>
+                </div>
               </div>
             )}
           </div>
@@ -136,9 +230,49 @@ export default function FilterModal({ isOpen, onClose }) {
               )}
             </button>
             {openSections.followerDemographics && (
-              <div className="pl-4 text-sm text-gray-600 mb-2">
-                <p>• Age Range</p>
-                <p>• Gender</p>
+              <div className="pl-1 text-sm text-gray-600 mb-4 space-y-4">
+                {/* Follower Age */}
+                <div>
+                  <label className="block text-gray-700 font-semibold text-sm mb-1">
+                    Follower Age
+                  </label>
+                  <select
+                    value={`${follower_age_min}-${follower_age_max}`}
+                    onChange={(e) => {
+                      const [min, max] = e.target.value.split("-");
+                      setFollowerAgeMin(min);
+                      setFollowerAgeMax(max);
+                    }}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option>Follower Age</option>
+                    <option>13-17</option>
+                    <option>18-24</option>
+                    <option>25-34</option>
+                    <option>35-44</option>
+                    <option>45+</option>
+                  </select>
+                </div>
+
+                {/* Gender */}
+                <div>
+                  <label className="block mb-1 font-medium">Gender</label>
+                  <div className="flex gap-3">
+                    {genderOptions.map((gender) => (
+                      <button
+                        key={gender}
+                        className={`px-4 py-1 border rounded-full text-sm ${
+                          follower_gender === gender
+                            ? "bg-blue-500 text-white"
+                            : "text-gray-700 hover:bg-gray-100"
+                        }`}
+                        onClick={() => setFollowerGender(gender)}
+                      >
+                        {gender}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             )}
           </div>
@@ -157,9 +291,60 @@ export default function FilterModal({ isOpen, onClose }) {
               )}
             </button>
             {openSections.videoPerformance && (
-              <div className="pl-4 text-sm text-gray-600 mb-2">
-                <p>• Avg Views</p>
-                <p>• Watch Time</p>
+              <div className="pl-1 text-sm text-gray-600 mb-4 space-y-4">
+                {/* Engagement Rate */}
+                <div>
+                  <label className="block text-gray-700 font-semibold text-sm mb-1">
+                    Engagement Rate
+                  </label>
+                  <select
+                    value={engagement_rate}
+                    onChange={(e) => setEngagementRate(e.target.value)}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm"
+                  >
+                    <option>All</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>5</option>
+                    <option>10</option>
+                  </select>
+                </div>
+
+                {/* Average Shoppable Video Views */}
+                <div>
+                  <label className="block text-gray-700 font-semibold text-sm mb-1">
+                    Average Shoppable Video Views
+                  </label>
+                  <select
+                    value={avg_shoppable_video_views}
+                    onChange={(e) => setAvgShoppableVideoViews(e.target.value)}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option>Average Shoppable Video Views</option>
+                    <option>0</option>
+                    <option>101</option>
+                    <option>1000</option>
+                    <option>10000</option>
+                  </select>
+                </div>
+
+                {/* Average Live Views */}
+                <div>
+                  <label className="block text-gray-700 font-semibold text-sm mb-1">
+                    Average Live Views
+                  </label>
+                  <select
+                    value={avg_live_views}
+                    onChange={(e) => setAvgLiveViews(e.target.value)}
+                    className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option>Average Live Views</option>
+                    <option>100</option>
+                    <option>1000</option>
+                    <option>10000</option>
+                    <option>100000</option>
+                  </select>
+                </div>
               </div>
             )}
           </div>

@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { FunnelIcon } from "@heroicons/react/24/solid"; // For filter icon
 import FilterModal from "./FilterModal";
 const creatorsData = [
   {
@@ -29,7 +28,40 @@ const creatorsData = [
   },
 ];
 
-export default function TargetCreators({ onPrevious }) {
+export default function TargetCreators({
+  onPrevious,
+  setSendToAll,
+  setPreferredContentType,
+  setSampleOffer,
+  setManualReview,
+  onSaveClick,
+  category,
+  setCategory,
+  last_month_gmv,
+  setLastMonthGmv,
+  follower_count,
+  setFollowerCount,
+  avg_live_views,
+  setAvgLiveViews,
+  avg_shoppable_videos_count,
+  setAvgShoppableVideosCount,
+  post_fulfillment_rate,
+  setPostFulfillmentRate,
+  creator_gender,
+  setCreatorGender,
+  language,
+  setLanguage,
+  follower_age_min,
+  setFollowerAgeMin,
+  follower_age_max,
+  setFollowerAgeMax,
+  follower_gender,
+  setFollowerGender,
+  engagement_rate,
+  setEngagementRate,
+  avg_shoppable_video_views,
+  setAvgShoppableVideoViews,
+}) {
   const [showModal, setShowModal] = useState(false);
   return (
     <div className="mt-6">
@@ -57,7 +89,36 @@ export default function TargetCreators({ onPrevious }) {
         >
           Filters
         </button>
-        <FilterModal isOpen={showModal} onClose={() => setShowModal(false)} />
+        <FilterModal
+          isOpen={showModal}
+          onClose={() => setShowModal(false)}
+          category={category}
+          setCategory={setCategory}
+          last_month_gmv={last_month_gmv}
+          setLastMonthGmv={setLastMonthGmv}
+          follower_count={follower_count}
+          setFollowerCount={setFollowerCount}
+          avg_live_views={avg_live_views}
+          setAvgLiveViews={setAvgLiveViews}
+          avg_shoppable_videos_count={avg_shoppable_videos_count}
+          setAvgShoppableVideosCount={setAvgShoppableVideosCount}
+          post_fulfillment_rate={post_fulfillment_rate}
+          setPostFulfillmentRate={setPostFulfillmentRate}
+          creator_gender={creator_gender}
+          setCreatorGender={setCreatorGender}
+          language={language}
+          setLanguage={setLanguage}
+          follower_age_min={follower_age_min}
+          setFollowerAgeMin={setFollowerAgeMin}
+          follower_age_max={follower_age_max}
+          setFollowerAgeMax={setFollowerAgeMax}
+          follower_gender={follower_gender}
+          setFollowerGender={setFollowerGender}
+          engagement_rate={engagement_rate}
+          setEngagementRate={setEngagementRate}
+          avg_shoppable_video_views={avg_shoppable_video_views}
+          setAvgShoppableVideoViews={setAvgShoppableVideoViews}
+        />
       </div>
 
       {/* Table */}
@@ -89,6 +150,14 @@ export default function TargetCreators({ onPrevious }) {
             ))}
           </tbody>
         </table>
+        <div className="mt-8 flex justify-between">
+          <button
+            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+            onClick={() => onSaveClick()}
+          >
+            Save
+          </button>
+        </div>
       </div>
     </div>
   );

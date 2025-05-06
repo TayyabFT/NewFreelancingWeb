@@ -12,14 +12,16 @@ export default function LoginPage() {
     setError(""); // Clear previous error
     try {
       const res = await loginUser(email, password);
-      alert("Login successful!");
-      console.log("Response:", res);
-      // optionally redirect or store token here
+      console.log(res);
+      if (res.message === "User logged in successfully.") {
+        alert("Login successful!");
+        window.location.href = "/compaingns";
+      } else {
+        alert("Username or password is wrong.");
+      }
     } catch (err) {
       console.error(err);
       setError(err.message);
-      alert("Login successful!");
-      window.location.href = "/compaingns";
     }
   };
 

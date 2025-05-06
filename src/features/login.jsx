@@ -1,4 +1,5 @@
 import API_BASE_URL from "@/app/utils/apiconfig";
+
 export async function loginUser(Email, Password) {
   const response = await fetch(`${API_BASE_URL}/userLogin`, {
     method: "POST",
@@ -12,5 +13,7 @@ export async function loginUser(Email, Password) {
     throw new Error("Failed to log in. Please check your credentials.");
   }
 
-  return response.json();
+  const data = await response.json();
+  localStorage.setItem("UserID", data.user.UserID); // Save userID in localStorage
+  return data;
 }
